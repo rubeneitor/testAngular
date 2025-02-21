@@ -29,7 +29,6 @@ export interface Artist {
 })
 export class SongsService {
   private apiUrlSongs = 'http://localhost:3000/songs';
-  private apiUrlArtists = 'http://localhost:3000/artists'
 
   constructor(private http: HttpClient) { }
 
@@ -39,13 +38,5 @@ export class SongsService {
 
   addSong(song: any): Observable<any>{
     return this.http.post(this.apiUrlSongs, song)
-  }
-
-  getNameArtist(id: any): Observable<any>{
-    return this.http.get<Artist>(this.apiUrlArtists);
-  }
-
-  getCountryCompanies(): Observable<Artist> {
-    return this.http.get<Artist>(this.apiUrlArtists);
   }
 }

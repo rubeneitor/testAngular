@@ -1,0 +1,14 @@
+<div class="d-flex mb-4">
+    <h2>Artists List</h2>
+  </div>
+  <div class="artist-list">
+    <div class="artist-card" *ngFor="let artist of artists">
+      <div class="image-container">
+        <img width="100%" [src]="getArtistImage(artist)" [alt]="artist.img" class="artist-img">
+      </div>
+      <h3 class="mb-2">{{ artist.name }}</h3>
+      <p class="year"><strong>Ciudad:</strong> {{ artist.bornCity }}</p>
+      <p ><strong>Fecha nacimiento:</strong> {{ artist.birthdate }}</p>
+      <p class="duration"><strong>Puntuación:</strong> {{ artist.rating }} seconds</p>
+    </div>
+  </div>
