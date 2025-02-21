@@ -1,3 +1,4 @@
+/* Estilos para la lista de canciones */
 .song-list {
     display: flex;
     flex-wrap: wrap;
@@ -33,5 +34,24 @@
     .rating {
       display: none;
     }
+  }
+
+  /* Estilo para el modal de Editar Cancion */
+  .modal-footer button {
+    border-radius: 50%;
+  } 
+  
+  .input-underline {
+    border: none; /* Quita el borde */
+    border-bottom: 2px solid #000; /* Agrega solo una línea inferior */
+    background: transparent; /* Fondo transparente */
+    outline: none; /* Quita el contorno al hacer clic */
+    width: 100%; /* Ocupar todo el ancho disponible */
+    font-size: 16px; /* Tamaño del texto */
+    padding: 5px 0; /* Espaciado arriba/abajo */
+  }
+  
+  .input-underline:focus {
+    border-bottom: 2px solid #007bff; /* Cambia el color al hacer foco */
   }
   
