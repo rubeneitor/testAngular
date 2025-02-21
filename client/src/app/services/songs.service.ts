@@ -24,4 +24,8 @@ export class SongsService {
   getSongs(): Observable<Song[]> {
     return this.http.get<Song[]>(this.apiUrlSongs);
   }
+
+  addSong(song: any): Observable<any>{
+    return this.http.post(this.apiUrlSongs, song)
+  }
 }
