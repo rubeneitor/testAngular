@@ -13,11 +13,23 @@ export interface Song {
   artist: number;
 }
 
+export interface Artist {
+  id: number;
+  name: string;
+  bornCity: string;
+  birthdate: string;
+  img: string | null;
+  rating: number;
+  songs: number[]; 
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class SongsService {
   private apiUrlSongs = 'http://localhost:3000/songs';
+  private apiUrlArtists = 'http://localhost:3000/artists'
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +39,13 @@ export class SongsService {
 
   addSong(song: any): Observable<any>{
     return this.http.post(this.apiUrlSongs, song)
+  }
+
+  getNameArtist(id: any): Observable<any>{
+    return this.http.get<Artist>(this.apiUrlArtists);
+  }
+
+  getCountryCompanies(): Observable<Artist> {
+    return this.http.get<Artist>(this.apiUrlArtists);
   }
 }
