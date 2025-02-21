@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SongsService, Song } from '../../services/songs.service';
 import { CommonModule } from '@angular/common';
+import { AddSongComponent } from '../add-song/add-song.component';
 
 @Component({
   selector: 'app-list-songs',
-  imports: [CommonModule],
+  imports: [CommonModule, AddSongComponent],
   templateUrl: './list-songs.component.html',
   styleUrl: './list-songs.component.css'
 })
