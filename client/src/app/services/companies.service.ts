@@ -28,4 +28,8 @@ export class CompaniesService {
   getNamesCompanies(song: any): Observable<Companies> {
     return this.http.get<Companies>(this.apiUrlCompanies);
   }
+
+  getCompanies(): Observable<Companies[]> {
+    return this.http.get<Companies[]>(this.apiUrlCompanies)
+  }
 }
