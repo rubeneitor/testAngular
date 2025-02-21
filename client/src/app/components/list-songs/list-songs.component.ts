@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AddSongComponent } from '../add-song/add-song.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CompaniesService } from '../../services/companies.service';
+import { ArtistsService } from '../../services/artists.service';
 
 declare var bootstrap: any; // Para Bootstrap modal manualmente
 
@@ -30,7 +31,7 @@ export class ListSongsComponent implements OnInit {
   nameCompany: any = null; 
 
 
-  constructor(private songsService: SongsService, private companiesService: CompaniesService, private fb: FormBuilder) {
+  constructor(private songsService: SongsService, private companiesService: CompaniesService, private artistsService: ArtistsService, private fb: FormBuilder) {
     this.songForm = this.fb.group({
       title: [''],
       artist: [''],
@@ -56,7 +57,7 @@ export class ListSongsComponent implements OnInit {
   //Obtiene el nombre del Artista
   getArtist(id: any){
     console.log(id)
-    this.songsService.getNameArtist(id).subscribe((data:any) => {
+    this.artistsService.getNameArtist(id).subscribe((data:any) => {
       for(let idArtist of data){
         console.log(idArtist)
         if(idArtist.id == id){
