@@ -5,7 +5,7 @@
   </button>
   </div>
   <div class="song-list">
-    <div class="song-card" *ngFor="let song of songs" (click)="openModal(song); getArtist(song.artist)">
+    <div class="song-card" *ngFor="let song of songs" (click)="openModal(song); getArtist(song.artist); getContryCompanies(song); getNamesCompanies(song)">
       <img [src]="song.poster" [alt]="song.title" class="song-poster">
       <h3>{{ song.title }}</h3>
       <p class="year"><strong>Year:</strong> {{ song.year }}</p>
@@ -36,7 +36,6 @@
 
 
   <!-- Modal para Editar Cancion -->
-<!-- Modal -->
 <div class="modal fade" id="songModal" tabindex="-1" aria-labelledby="songModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content p-3">
@@ -49,21 +48,19 @@
           <div class="d-flex justify-content-center">
             <img width="50%" [src]="selectedSong?.poster" [alt]="selectedSong?.title" class="img-fluid rounded mb-3 justify-content-center">
           </div>
-          
           <!-- Géneros -->
           <div class="mb-2">
             <span *ngFor="let genre of selectedSong?.genre" class="badge bg-secondary me-1">{{ genre }}</span>
           </div>
-  
           <!-- Compañía discográfica -->
           <div class="mb-3">
-            <strong>Compañía discográfica:</strong>
-            <span *ngFor="let company of selectedSong?.label" class="badge bg-light text-dark border me-1">{{ company }}</span>
+            <strong>Compañía discográfica:</strong><br>
+            <p class="badge bg-info text-dark border me-1">{{this.nameCompany}}</p>
           </div>
           <br>
           <!-- País -->
           <label><strong>País</strong></label>
-          <input type="text" class="input-underline" placeholder="" value="{{ selectedSong?.country }}">
+          <input type="text" class="input-underline" placeholder="" value="{{ this.countryCompany }}">
           <br><br>
           <!-- Año -->
           <label><strong>Año</strong></label>

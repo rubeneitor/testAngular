@@ -3,6 +3,7 @@ import { SongsService, Song, Artist } from '../../services/songs.service';
 import { CommonModule } from '@angular/common';
 import { AddSongComponent } from '../add-song/add-song.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CompaniesService } from '../../services/companies.service';
 
 declare var bootstrap: any; // Para Bootstrap modal manualmente
 
@@ -13,14 +14,22 @@ declare var bootstrap: any; // Para Bootstrap modal manualmente
   styleUrl: './list-songs.component.css'
 })
 export class ListSongsComponent implements OnInit {
+  
+  //Canciones
   songForm: FormGroup;
   songs: Song[] = [];
   selectedSong: any = null;
 
-  artists: Artist[] = []
-  nameArtist: any = null
+  //Artistas
+  artists: Artist[] = [];
+  nameArtist: any = null;
 
-  constructor(private songsService: SongsService, private fb: FormBuilder) {
+  //Comapañias
+  countryCompany: any = null;
+  nameCompany: any = null; 
+
+
+  constructor(private songsService: SongsService, private companiesService: CompaniesService, private fb: FormBuilder) {
     this.songForm = this.fb.group({
       title: [''],
       artist: [''],
@@ -55,6 +64,34 @@ export class ListSongsComponent implements OnInit {
         }
       }
       
+    })
+  }
+
+  //Obtiene el país de la canción a través de la compañia
+  getContryCompanies(song: any){   
+    this.companiesService.getCountryCompanies(song.id).subscribe((data:any) => {
+      for(let idSong of data){
+        console.log(idSong.songs)
+        if(idSong.songs.includes(song.id)){
+          console.log("SONGS", idSong.songs)
+          this.countryCompany = idSong.country
+          console.log("COMPAÑIA",this.countryCompany)
+        }
+      }
+    })
+  }
+
+  //Obtiene el nombre de la compañia
+  getNamesCompanies(song: any){   
+    this.companiesService.getNamesCompanies(song.id).subscribe((data:any) => {
+      for(let idSong of data){
+        console.log(idSong.songs)
+        if(idSong.songs.includes(song.id)){
+          console.log("SONGS", idSong.songs)
+          this.nameCompany = idSong.name
+          console.log("COMPAÑIA",this.nameCompany)
+        }
+      }
     })
   }
 
