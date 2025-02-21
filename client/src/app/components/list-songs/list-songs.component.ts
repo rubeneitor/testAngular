@@ -19,6 +19,7 @@ export class ListSongsComponent implements OnInit {
   songForm: FormGroup;
   songs: Song[] = [];
   selectedSong: any = null;
+  genres: string[] = [];
 
   //Artistas
   artists: Artist[] = [];
@@ -93,6 +94,22 @@ export class ListSongsComponent implements OnInit {
         }
       }
     })
+  }
+
+  //Añadir en la interfaz un género
+  addGenre() {
+    const genre = this.songForm.value.genre;
+    if (genre && !this.genres.includes(genre)) {
+      this.genres.push(genre);
+      this.songForm.patchValue({ genre: '' });
+    }
+  }
+
+  //Eliminar de la interfaz un género
+  removeGenre(genre: string) {
+    
+    this.selectedSong.genre = this.selectedSong.genre.filter((g: string) => g !== genre);
+    console.log(this.selectedSong.genre)
   }
 
   //Abre Modal de la canción
