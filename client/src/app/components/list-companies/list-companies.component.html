@@ -1,0 +1,13 @@
+<div class="d-flex mb-4">
+    <h2>Companies List</h2>
+</div>
+<div class="companies-list">
+    <div class="companies-card" *ngFor="let company of companies; let i = index" [ngStyle]="{'background-color': backgroundColors[i]}">
+        <div class="image-container">
+        </div>
+        <h3 class="mb-2">{{ company.name }}</h3>
+        <p class="country"><strong>Pais:</strong> {{ company.country }}</p>
+        <p><strong>Año creación:</strong> {{ company.createYear }}</p>
+        <p class="rating"><strong>Puntuación:</strong> {{ company.rating }}</p>
+    </div>
+</div>
