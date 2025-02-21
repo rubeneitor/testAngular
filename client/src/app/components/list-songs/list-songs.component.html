@@ -1,0 +1,16 @@
+<div class="d-flex mb-4">
+    <h2>Song List</h2>
+  <button class="btn btn-primary ms-4" data-bs-toggle="modal" data-bs-target="#addSongModal">
+    <i class="bi bi-plus-lg"></i>
+  </button>
+  </div>
+  <div class="song-list">
+    <div class="song-card" *ngFor="let song of songs">
+      <img [src]="song.poster" [alt]="song.title" class="song-poster">
+      <h3>{{ song.title }}</h3>
+      <p class="year"><strong>Year:</strong> {{ song.year }}</p>
+      <p ><strong>Genres:</strong> {{ song.genre.join(', ') }}</p>
+      <p class="duration"><strong>Duration:</strong> {{ song.duration }} seconds</p>
+      <p class="rating"><strong>Rating:</strong> {{ song.rating }}</p>
+    </div>
+  </div>
