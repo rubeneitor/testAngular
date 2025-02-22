@@ -1,0 +1,11 @@
+<button class="menu-button" (click)="toggleSidebar()">☰</button>
+
+<nav class="sidebar" [class.hidden]="!sidebarVisible">
+  <button class="close-button" (click)="hiderSidebarButton()">✖</button>
+  <ul>
+    <h1 class="mb-5">Menu</h1>
+    <li><a routerLink="/songs" routerLinkActive="active" (click)="hideSidebar()">Canciones</a></li>
+    <li><a routerLink="/artists" routerLinkActive="active" (click)="hideSidebar()">Artistas</a></li>
+    <li><a routerLink="/companies" routerLinkActive="active" (click)="hideSidebar()">Compañias</a></li>
+  </ul>
+</nav>

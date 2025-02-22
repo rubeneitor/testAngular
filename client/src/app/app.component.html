@@ -1,3 +1,5 @@
-<main>
+<app-sidebar (sidebarToggled)="sidebarVisible = $event"></app-sidebar>
+
+<main class="content" [class.sidebar-hidden]="!sidebarVisible">
   <router-outlet></router-outlet>
 </main>
