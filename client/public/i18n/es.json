@@ -32,7 +32,7 @@
       "ph_genre": "Añade un género",
       "ph_company": "Añade una compañía",
       "ph_country": "Indique la nacionalidad de la canción",
-      "ph_rating": "Indique la puntiación"
+      "ph_rating": "Indique la puntuación"
     }
   },
   "FORM_EDIT_SONG": {

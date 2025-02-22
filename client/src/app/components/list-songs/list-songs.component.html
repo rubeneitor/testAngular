@@ -1,93 +1,93 @@
 <div class="d-flex mb-4">
-    <h2>Song List</h2>
-  <button class="btn btn-primary ms-4" data-bs-toggle="modal" data-bs-target="#addSongModal">
-    <i class="bi bi-plus-lg"></i>
-  </button>
-  </div>
-  <div class="song-list">
-    <div class="song-card" *ngFor="let song of songs" (click)="openModal(song); getArtist(song.artist); getContryCompanies(song); getNamesCompanies(song)">
-      <img [src]="song.poster" [alt]="song.title" class="song-poster">
-      <h3>{{ song.title }}</h3>
-      <p class="year"><strong>Year:</strong> {{ song.year }}</p>
-      <p ><strong>Genres:</strong> {{ song.genre.join(', ') }}</p>
-      <p class="duration"><strong>Duration:</strong> {{ song.duration }} seconds</p>
-      <p class="rating"><strong>Rating:</strong> {{ song.rating }}</p>
+    <h2>{{'SONGS.HEADER.hd_titulo' | translate}}</h2>
+    <button class="btn btn-primary ms-4" data-bs-toggle="modal" data-bs-target="#addSongModal">
+        <i class="bi bi-plus-lg"></i>
+    </button>
+</div>
+<div class="song-list">
+    <div class="song-card" *ngFor="let song of songs"
+        (click)="openModal(song); getArtist(song.artist); getContryCompanies(song); getNamesCompanies(song)">
+        <img [src]="song.poster" [alt]="song.title" class="song-poster">
+        <h3>{{ song.title }}</h3>
+        <p class="year"><strong>{{'SONGS.LABELS.lb_year' | translate}}</strong> {{ song.year }}</p>
+        <p><strong>{{'SONGS.LABELS.lb_genres' | translate}}</strong> {{ song.genre.join(', ') }}</p>
+        <p class="duration"><strong>{{'SONGS.LABELS.lb_duration' | translate}}</strong> {{ song.duration }} seconds</p>
+        <p class="rating"><strong>{{'SONGS.LABELS.lb_rating' | translate}}</strong> {{ song.rating }}</p>
     </div>
-  </div>
+</div>
 
-  <!-- Modal Añadir Canción -->
+<!-- Modal Añadir Canción -->
 <div class="modal fade" id="addSongModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{'MODALS.ml_newSong' | translate}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-add-song></app-add-song>
+            </div>
+            <div class="modal-footer justify-content-start">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <app-add-song></app-add-song>
-        </div>
-        <div class="modal-footer justify-content-start">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
 
 
-  <!-- Modal para Editar Cancion -->
-<!-- Modal -->
+<!-- Modal para Editar Cancion -->
 <div class="modal fade" id="songModal" tabindex="-1" aria-labelledby="songModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content p-3">
-        <div class="modal-header border-0 justify-content-center" >
-          <h5 class="modal-title" id="songModalLabel">{{ selectedSong?.title }} ({{ this.nameArtist }})</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content p-3">
+            <div class="modal-header border-0 justify-content-center">
+                <h5 class="modal-title" id="songModalLabel">{{ selectedSong?.title }} ({{ this.nameArtist }})</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Imagen -->
+                <div class="d-flex justify-content-center">
+                    <img width="50%" [src]="selectedSong?.poster" [alt]="selectedSong?.title"
+                        class="img-fluid rounded mb-3 justify-content-center">
+                </div>
+
+                <!-- Géneros -->
+                <div class="mb-2 d-flex justify-content-center">
+                    <span *ngFor="let genre of selectedSong?.genre" class="badge bg-dark me-1">{{ genre }}</span>
+                </div>
+                <label><strong>{{'FORM_EDIT_SONG.LABELS.lb_genre' | translate}}</strong></label>
+                <div class="mt-2">
+                    <span *ngFor="let genre of selectedSong?.genre" class="badge bg-secondary me-2">
+                        {{ genre }}
+                        <button type="button" class="btn-close btn-close-white ms-1" aria-label="Close"
+                            (click)="removeGenre(genre)"></button>
+                    </span>
+                </div>
+                <br>
+
+                <!-- Compañía discográfica -->
+                <div class="mb-3">
+                    <strong>{{'FORM_EDIT_SONG.LABELS.lb_company' | translate}}</strong><br>
+                    <p class="badge bg-info text-dark border me-1">{{this.nameCompany}}</p>
+                </div>
+                <!-- País -->
+                <label><strong>{{'FORM_EDIT_SONG.LABELS.lb_country' | translate}}</strong></label>
+                <input type="text" class="input-underline" placeholder="" value="{{ this.countryCompany }}">
+                <br><br>
+                <!-- Año -->
+                <label><strong>{{'FORM_EDIT_SONG.LABELS.lb_year' | translate}}</strong></label>
+                <input type="text" class="input-underline" placeholder="" value="{{ selectedSong?.year }}">
+            </div>
+
+            <div class="modal-footer border-0 d-flex justify-end">
+                <!-- Botones de editar y eliminar -->
+                <button class="btn btn-outline-secondary">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-outline-danger">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
         </div>
-        <div class="modal-body">
-          <!-- Imagen -->
-          <div class="d-flex justify-content-center">
-            <img width="50%" [src]="selectedSong?.poster" [alt]="selectedSong?.title" class="img-fluid rounded mb-3 justify-content-center">
-          </div>
-          
-          <!-- Géneros -->
-          <div class="mb-2 d-flex justify-content-center">
-            <span *ngFor="let genre of selectedSong?.genre" class="badge bg-dark me-1">{{ genre }}</span>
-          </div>
-          <label><strong>Género</strong></label>
-          <div class="mt-2">
-            <span *ngFor="let genre of selectedSong?.genre" class="badge bg-secondary me-2">
-              {{ genre }} 
-              <button type="button" class="btn-close btn-close-white ms-1" aria-label="Close" (click)="removeGenre(genre)"></button>
-            </span>
-          </div>
-          <br>
-  
-          <!-- Compañía discográfica -->
-          <div class="mb-3">
-            <strong>Compañía discográfica:</strong><br>
-            <p class="badge bg-info text-dark border me-1">{{this.nameCompany}}</p>
-          </div>
-          <!-- País -->
-          <label><strong>País</strong></label>
-          <input type="text" class="input-underline" placeholder="" value="{{ this.countryCompany }}">
-          <br><br>
-          <!-- Año -->
-          <label><strong>Año</strong></label>
-          <input type="text" class="input-underline" placeholder="" value="{{ selectedSong?.year }}">
-        </div>
-  
-        <div class="modal-footer border-0 d-flex justify-end">
-          <!-- Botones de editar y eliminar -->
-          <button class="btn btn-outline-secondary">
-            <i class="bi bi-pencil"></i>
-          </button>
-          <button class="btn btn-outline-danger">
-            <i class="bi bi-trash"></i>
-          </button>
-        </div>
-      </div>
     </div>
-  </div>
-  
-  
+</div>
