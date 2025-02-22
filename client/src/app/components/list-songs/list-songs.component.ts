@@ -5,17 +5,19 @@ import { AddSongComponent } from '../add-song/add-song.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CompaniesService } from '../../services/companies.service';
 import { ArtistsService } from '../../services/artists.service';
+import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 declare var bootstrap: any; // Para Bootstrap modal manualmente
 
 @Component({
   selector: 'app-list-songs',
-  imports: [CommonModule, AddSongComponent, ReactiveFormsModule],
+  imports: [CommonModule, AddSongComponent, ReactiveFormsModule, TranslateModule, TranslatePipe],
   templateUrl: './list-songs.component.html',
   styleUrl: './list-songs.component.css'
 })
 export class ListSongsComponent implements OnInit {
-  
+
+
   //Canciones
   songForm: FormGroup;
   songs: Song[] = [];
@@ -31,7 +33,14 @@ export class ListSongsComponent implements OnInit {
   nameCompany: any = null; 
 
 
-  constructor(private songsService: SongsService, private companiesService: CompaniesService, private artistsService: ArtistsService, private fb: FormBuilder) {
+  constructor(
+    private songsService: SongsService, 
+    private companiesService: CompaniesService, 
+    private artistsService: ArtistsService, 
+    private fb: FormBuilder,
+    private translate: TranslateService
+  ) {
+    this.translate.setDefaultLang('es')
     this.songForm = this.fb.group({
       title: [''],
       artist: [''],

@@ -3,12 +3,13 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SongsService } from '../../services/songs.service';
+import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-song',
   templateUrl: './add-song.component.html',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule, TranslatePipe]
 })
 export class AddSongComponent {
   songForm: FormGroup;
@@ -17,7 +18,8 @@ export class AddSongComponent {
   countries: string[] = ['USA', 'UK', 'Spain', 'Germany', 'France'];
   posters: string[] = ['http://dummyimage.com/400x600.png/ff4444/ffffff', 'http://dummyimage.com/400x600.png/5fa2dd/ffffff', 'http://dummyimage.com/400x600.png/dddddd/000000'];
 
-  constructor(private fb: FormBuilder, private songsService: SongsService) {
+  constructor(private fb: FormBuilder, private songsService: SongsService, private translate: TranslateService) {
+    this.translate.setDefaultLang('es')
     this.songForm = this.fb.group({
       poster:['', Validators.required],
       title: ['', Validators.required],

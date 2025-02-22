@@ -1,0 +1,57 @@
+{
+  "SONGS": {
+    "HEADER": {
+      "hd_titulo": "Lista de canciones"
+    },
+
+    "LABELS": {
+      "lb_year": "Año:",
+      "lb_genres": "Géneros:",
+      "lb_duration": "Duración:",
+      "lb_rating": "Puntuación"
+    }
+  },
+  "FORM_ADD_SONG": {
+    "LABELS": {
+      "lb_poster": "Póster",
+      "lb_title": "Título",
+      "lb_artists": "Artistas",
+      "lb_genre": "Género",
+      "lb_company": "Compañía discográfica",
+      "lb_country": "País",
+      "lb_year": "Año",
+      "lb_rating": "Puntuación"
+    },
+    "BUTTONS": {
+      "bt_saveSong": "Guardar canción"
+    },
+    "PLACEHOLDERS": {
+      "ph_poster": "Selecciona la imagen del Póster",
+      "ph_title": "Indique el título de la canción",
+      "ph_artists": "Indique el o los artistas",
+      "ph_genre": "Añade un género",
+      "ph_company": "Añade una compañía",
+      "ph_country": "Indique la nacionalidad de la canción",
+      "ph_rating": "Indique la puntiación"
+    }
+  },
+  "FORM_EDIT_SONG": {
+    "LABELS": {
+      "lb_genre": "Género",
+      "lb_company": "Compañía discográfica",
+      "lb_country": "País",
+      "lb_year": "Año"
+
+    }
+  },
+  "MENU_SIDEBAR": {
+    "title": "Menu",
+    "songs": "Canciones",
+    "artists": "Artistas",
+    "companies": "Compañias"
+  },
+
+  "MODALS": {
+    "ml_newSong": "Nueva canción"
+  }
+}

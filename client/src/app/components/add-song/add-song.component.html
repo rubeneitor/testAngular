@@ -1,68 +1,72 @@
 <form [formGroup]="songForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
-      <label class="form-label">Poster</label>
-      <select class="form-select" formControlName="poster">
-        <option value="">Selecciona la imagen del Poster</option>
-        <option *ngFor="let poster of posters" [value]="poster">{{ poster }}</option>
-      </select>
-    </div>  
-    
-    <div class="mb-3">
-        <label class="form-label">Título</label>
-        <input type="text" class="form-control" formControlName="title" placeholder="Indique el título de la canción">
-      </div>
-    
-      <div class="mb-3">
-        <label class="form-label">Artistas</label>
-        <input type="text" class="form-control" formControlName="artists" placeholder="Indique el o los artistas">
-      </div>
-    
-      <div class="mb-3">
-        <label class="form-label">Género</label>
-        <div class="input-group">
-          <input type="text" class="form-control" formControlName="genre" placeholder="Añade un género">
-          <button class="btn btn-outline-secondary" type="button" (click)="addGenre()">+</button>
-        </div>
-        <div class="mt-2">
-          <span *ngFor="let genre of genres" class="badge bg-secondary me-2">
-            {{ genre }} 
-            <button type="button" class="btn-close btn-close-white ms-1" aria-label="Close" (click)="removeGenre(genre)"></button>
-          </span>
-        </div>
-      </div>
-    
-      <div class="mb-3">
-        <label class="form-label">Compañía discográfica</label>
-        <div class="input-group">
-          <input type="text" class="form-control" formControlName="company" placeholder="Añade una compañía">
-          <button class="btn btn-outline-secondary" type="button" (click)="addCompany()">+</button>
-        </div>
-        <div class="mt-2">
-          <span *ngFor="let company of companies" class="badge bg-secondary me-2">
-            {{ company }} 
-            <button type="button" class="btn-close btn-close-white ms-1" aria-label="Close" (click)="removeCompany(company)"></button>
-          </span>
-        </div>
-      </div>
-    
-      <div class="mb-3">
-        <label class="form-label">País</label>
-        <select class="form-select" formControlName="country">
-          <option value="">Indique la nacionalidad de la canción</option>
-          <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+        <label class="form-label">{{'FORM_ADD_SONG.LABELS.lb_poster' | translate}}</label>
+        <select class="form-select" formControlName="poster">
+            <option value="">{{'FORM_ADD_SONG.PLACEHOLDERS.ph_poster' | translate}}</option>
+            <option *ngFor="let poster of posters" [value]="poster">{{ poster }}</option>
         </select>
-      </div>
-    
-      <div class="mb-3">
-        <label class="form-label">Año</label>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">{{'FORM_ADD_SONG.LABELS.lb_title' | translate}}</label>
+        <input type="text" class="form-control" formControlName="title" placeholder="Indique el título de la canción">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">{{'FORM_ADD_SONG.LABELS.lb_artists' | translate}}</label>
+        <input type="text" class="form-control" formControlName="artists" placeholder="Indique el o los artistas">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">{{'FORM_ADD_SONG.LABELS.lb_genre' | translate}}</label>
+        <div class="input-group">
+            <input type="text" class="form-control" formControlName="genre"
+                placeholder="{{'FORM_ADD_SONG.PLACEHOLDERS.ph_genre' | translate}}">
+            <button class="btn btn-outline-secondary" type="button" (click)="addGenre()">+</button>
+        </div>
+        <div class="mt-2">
+            <span *ngFor="let genre of genres" class="badge bg-secondary me-2">
+                {{ genre }}
+                <button type="button" class="btn-close btn-close-white ms-1" aria-label="Close"
+                    (click)="removeGenre(genre)"></button>
+            </span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">{{'FORM_ADD_SONG.LABELS.lb_company' | translate}}</label>
+        <div class="input-group">
+            <input type="text" class="form-control" formControlName="company"
+                placeholder="{{'FORM_ADD_SONG.PLACEHOLDERS.ph_company' | translate}}">
+            <button class="btn btn-outline-secondary" type="button" (click)="addCompany()">+</button>
+        </div>
+        <div class="mt-2">
+            <span *ngFor="let company of companies" class="badge bg-secondary me-2">
+                {{ company }}
+                <button type="button" class="btn-close btn-close-white ms-1" aria-label="Close"
+                    (click)="removeCompany(company)"></button>
+            </span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">{{'FORM_ADD_SONG.LABELS.lb_country' | translate}}</label>
+        <select class="form-select" formControlName="country">
+            <option value="">{{'FORM_ADD_SONG.PLACEHOLDERS.ph_country' | translate}}</option>
+            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">{{'FORM_ADD_SONG.LABELS.lb_year' | translate}}</label>
         <input type="date" class="form-control" formControlName="year" placeholder="Indique el año">
-      </div>
-    
-      <div class="mb-3">
-        <label class="form-label">Puntuación</label>
-        <input type="number" class="form-control" formControlName="rating" placeholder="Indique la puntuación" step="0.1" min="0" max="10">
-      </div>
-    
-      <button type="submit" class="btn btn-primary">Guardar Canción</button>
-    </form>
-    
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">{{'FORM_ADD_SONG.LABELS.lb_rating' | translate}}</label>
+        <input type="number" class="form-control" formControlName="rating"
+            placeholder="{{'FORM_ADD_SONG.PLACEHOLDERS.ph_rating' | translate}}" step="0.1" min="0" max="10">
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{'FORM_ADD_SONG.BUTTONS.bt_saveSong' | translate}}</button>
+</form>

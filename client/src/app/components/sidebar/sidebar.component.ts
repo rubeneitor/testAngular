@@ -1,16 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, Output, EventEmitter, HostListener, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-sidebar',
-    imports: [CommonModule, RouterModule],
+    imports: [CommonModule, RouterModule, TranslateModule, TranslatePipe],
     templateUrl: './sidebar.component.html',
     styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent implements OnInit {
     sidebarVisible = true;
     isMobile = false;
+
+    constructor(private translate: TranslateService){
+        this.translate.setDefaultLang('es')
+    }
 
     ngOnInit() {
         if (typeof window !== 'undefined') { 
