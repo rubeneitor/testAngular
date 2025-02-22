@@ -20,3 +20,18 @@
       margin-left: 0;  /* Sin margen cuando el sidebar esté oculto */
     }
   }
+
+/* Estilos del sidebar */
+
+/* Cuando el sidebar está oculto, el contenido se ajusta */
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.content.sidebar-hidden {
+  margin-left: 0;
+}
+
+  
