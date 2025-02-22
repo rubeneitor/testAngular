@@ -1,8 +1,9 @@
-<div class="d-flex mb-4">
-    <h2>Companies List</h2>
+<div class="d-flex mb-4 mx-5">
+    <h2>Lista de compañías</h2>
 </div>
 <div class="companies-list">
-    <div class="companies-card" *ngFor="let company of companies; let i = index" [ngStyle]="{'background-color': backgroundColors[i]}">
+    <div class="companies-card" *ngFor="let company of companies; let i = index"
+        [ngStyle]="{'background-color': backgroundColors[i]}">
         <div class="image-container">
         </div>
         <h3 class="mb-2">{{ company.name }}</h3>

@@ -46,7 +46,7 @@ export class SidebarComponent implements OnInit {
 
     toggleSidebar() {
         this.sidebarVisible = !this.sidebarVisible;
-        this.sidebarToggled.emit(this.sidebarVisible); // Emitir cambio
+        this.sidebarToggled.emit(this.sidebarVisible);
     }
 
 }

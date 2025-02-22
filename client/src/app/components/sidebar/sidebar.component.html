@@ -1,11 +1,14 @@
 <button class="menu-button" (click)="toggleSidebar()">☰</button>
 
 <nav class="sidebar" [class.hidden]="!sidebarVisible">
-  <button class="close-button" (click)="hiderSidebarButton()">✖</button>
-  <ul>
-    <h1 class="mb-5">{{'MENU_SIDEBAR.title' | translate}}</h1>
-    <li><a routerLink="/songs" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.songs' | translate}}</a></li>
-    <li><a routerLink="/artists" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.artists' | translate}}</a></li>
-    <li><a routerLink="/companies" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.companies' | translate}}</a></li>
-  </ul>
+    <button class="close-button" (click)="hiderSidebarButton()">✖</button>
+    <ul>
+        <h2 class="mb-5">{{'MENU_SIDEBAR.title' | translate}}</h2>
+        <li><a routerLink="/songs" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.songs' |
+                translate}}</a></li>
+        <li><a routerLink="/artists" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.artists' |
+                translate}}</a></li>
+        <li><a routerLink="/companies" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.companies' |
+                translate}}</a></li>
+    </ul>
 </nav>

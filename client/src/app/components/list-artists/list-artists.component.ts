@@ -20,6 +20,7 @@ export class ListArtistsComponent {
     this.getArtists();
   }
 
+  //Obtiene la lista de artistas
   getArtists(){
     this.artistsService.getArtists().subscribe((data: any) => {
       this.artists = data;
