@@ -3,9 +3,9 @@
 <nav class="sidebar" [class.hidden]="!sidebarVisible">
   <button class="close-button" (click)="hiderSidebarButton()">✖</button>
   <ul>
-    <h1 class="mb-5">Menu</h1>
-    <li><a routerLink="/songs" routerLinkActive="active" (click)="hideSidebar()">Canciones</a></li>
-    <li><a routerLink="/artists" routerLinkActive="active" (click)="hideSidebar()">Artistas</a></li>
-    <li><a routerLink="/companies" routerLinkActive="active" (click)="hideSidebar()">Compañias</a></li>
+    <h1 class="mb-5">{{'MENU_SIDEBAR.title' | translate}}</h1>
+    <li><a routerLink="/songs" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.songs' | translate}}</a></li>
+    <li><a routerLink="/artists" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.artists' | translate}}</a></li>
+    <li><a routerLink="/companies" routerLinkActive="active" (click)="hideSidebar()">{{'MENU_SIDEBAR.companies' | translate}}</a></li>
   </ul>
 </nav>

@@ -1,79 +1,103 @@
 {
-  "hash": "ee9c9812",
-  "configHash": "8cbbcb75",
-  "lockfileHash": "c8a9253f",
-  "browserHash": "b494199c",
+  "hash": "4c99c9d6",
+  "configHash": "e4bde1f5",
+  "lockfileHash": "8f61a513",
+  "browserHash": "a39bb5ed",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "fb6eef7c",
+      "fileHash": "8b9e1ad5",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "d9ecadf9",
+      "fileHash": "f03d33e7",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "36ce2362",
+      "fileHash": "06c2a8c8",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "4d53776b",
+      "fileHash": "886d0b34",
       "needsInterop": false
     },
     "@angular/platform-server": {
       "src": "../../../../../../node_modules/@angular/platform-server/fesm2022/platform-server.mjs",
       "file": "@angular_platform-server.js",
-      "fileHash": "3624ace8",
+      "fileHash": "b45b35c0",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "219dd816",
+      "fileHash": "4d572b9a",
       "needsInterop": false
     },
     "@angular/ssr": {
       "src": "../../../../../../node_modules/@angular/ssr/fesm2022/ssr.mjs",
       "file": "@angular_ssr.js",
-      "fileHash": "f990a03b",
+      "fileHash": "17c48f35",
       "needsInterop": false
     },
     "@angular/ssr/node": {
       "src": "../../../../../../node_modules/@angular/ssr/fesm2022/node.mjs",
       "file": "@angular_ssr_node.js",
-      "fileHash": "d6a2d991",
+      "fileHash": "a359aaa1",
       "needsInterop": false
     },
     "express": {
       "src": "../../../../../../node_modules/express/index.js",
       "file": "express.js",
-      "fileHash": "76f8d026",
+      "fileHash": "554ea577",
       "needsInterop": true
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "44e3b99b",
+      "fileHash": "abe7649d",
+      "needsInterop": false
+    },
+    "@ngx-translate/core": {
+      "src": "../../../../../../node_modules/@ngx-translate/core/fesm2022/ngx-translate-core.mjs",
+      "file": "@ngx-translate_core.js",
+      "fileHash": "5b48e7a6",
+      "needsInterop": false
+    },
+    "@ngx-translate/http-loader": {
+      "src": "../../../../../../node_modules/@ngx-translate/http-loader/fesm2022/ngx-translate-http-loader.mjs",
+      "file": "@ngx-translate_http-loader.js",
+      "fileHash": "3d75db1d",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations/async": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
+      "file": "@angular_platform-browser_animations_async.js",
+      "fileHash": "1cf8029a",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-5XHP2S2V": {
+      "file": "chunk-5XHP2S2V.js"
+    },
+    "chunk-7GLBKON7": {
+      "file": "chunk-7GLBKON7.js"
+    },
+    "browser-4KQQ56WG": {
+      "file": "browser-4KQQ56WG.js"
+    },
+    "chunk-2VPZEJQZ": {
+      "file": "chunk-2VPZEJQZ.js"
+    },
     "xhr2-TXIMV6CV": {
       "file": "xhr2-TXIMV6CV.js"
-    },
-    "chunk-UI6U5LPL": {
-      "file": "chunk-UI6U5LPL.js"
-    },
-    "chunk-HHCUQPDR": {
-      "file": "chunk-HHCUQPDR.js"
     },
     "chunk-MRTKVUOK": {
       "file": "chunk-MRTKVUOK.js"
