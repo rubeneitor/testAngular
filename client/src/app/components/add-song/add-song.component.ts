@@ -32,6 +32,7 @@ export class AddSongComponent {
     });
   }
 
+  //Añadir en la interfaz un género
   addGenre() {
     const genre = this.songForm.value.genre;
     if (genre && !this.genres.includes(genre)) {
@@ -40,10 +41,12 @@ export class AddSongComponent {
     }
   }
 
+  //Eliminar de la interfaz un género
   removeGenre(genre: string) {
     this.genres = this.genres.filter(g => g !== genre);
   }
 
+  //Añade en la interfaz una compañia
   addCompany() {
     const company = this.songForm.value.company;
     if (company && !this.companies.includes(company)) {
@@ -52,6 +55,7 @@ export class AddSongComponent {
     }
   }
 
+  //Elimina de la interfaz una compañia
   removeCompany(company: string) {
     this.companies = this.companies.filter(c => c !== company);
   }

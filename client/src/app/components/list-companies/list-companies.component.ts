@@ -23,7 +23,9 @@ backgroundColors: string[] = [];
   ngOnInit(): void {
     this.getCompanies();
 
-    this.backgroundColors = this.companies.map(() => this.getRandomColor());
+    setTimeout(() => {
+      this.backgroundColors = this.companies.map(() => this.getRandomColor());
+    }, 300);
   
   }
 

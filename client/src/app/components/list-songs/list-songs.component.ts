@@ -30,13 +30,15 @@ export class ListSongsComponent implements OnInit {
 
   //Comapañias
   countryCompany: any = null;
-  nameCompany: any = null; 
+  nameCompany: any = null;
+
+  loadedPage = false;
 
 
   constructor(
-    private songsService: SongsService, 
-    private companiesService: CompaniesService, 
-    private artistsService: ArtistsService, 
+    private songsService: SongsService,
+    private companiesService: CompaniesService,
+    private artistsService: ArtistsService,
     private fb: FormBuilder,
     private translate: TranslateService
   ) {
@@ -57,69 +59,53 @@ export class ListSongsComponent implements OnInit {
   }
 
   //Obtiene la lista de canciones 
-  getSongs(){
+  getSongs() {
     this.songsService.getSongs().subscribe((data: Song[]) => {
       this.songs = data;
     });
+    this.loadedPage = true
+
+
   }
 
   //Obtiene el nombre del Artista
-  getArtist(id: any){
-    console.log(id)
-    this.artistsService.getNameArtist(id).subscribe((data:any) => {
-      for(let idArtist of data){
-        console.log(idArtist)
-        if(idArtist.id == id){
+  getArtist(id: any) {
+    this.artistsService.getNameArtist(id).subscribe((data: any) => {
+      for (let idArtist of data) {
+        if (idArtist.id == id) {
           this.nameArtist = idArtist.name
-          console.log(this.nameArtist)
         }
       }
-      
+
     })
   }
 
   //Obtiene el país de la canción a través de la compañia
-  getContryCompanies(song: any){   
-    this.companiesService.getCountryCompanies(song.id).subscribe((data:any) => {
-      for(let idSong of data){
-        console.log(idSong.songs)
-        if(idSong.songs.includes(song.id)){
-          console.log("SONGS", idSong.songs)
+  getContryCompanies(song: any) {
+    this.companiesService.getCountryCompanies(song.id).subscribe((data: any) => {
+      for (let idSong of data) {
+        if (idSong.songs.includes(song.id)) {
           this.countryCompany = idSong.country
-          console.log("COMPAÑIA",this.countryCompany)
         }
       }
     })
   }
 
   //Obtiene el nombre de la compañia
-  getNamesCompanies(song: any){   
-    this.companiesService.getNamesCompanies(song.id).subscribe((data:any) => {
-      for(let idSong of data){
-        console.log(idSong.songs)
-        if(idSong.songs.includes(song.id)){
-          console.log("SONGS", idSong.songs)
+  getNamesCompanies(song: any) {
+    this.companiesService.getNamesCompanies(song.id).subscribe((data: any) => {
+      for (let idSong of data) {
+        if (idSong.songs.includes(song.id)) {
           this.nameCompany = idSong.name
-          console.log("COMPAÑIA",this.nameCompany)
         }
       }
     })
   }
 
-  //Añadir en la interfaz un género
-  addGenre() {
-    const genre = this.songForm.value.genre;
-    if (genre && !this.genres.includes(genre)) {
-      this.genres.push(genre);
-      this.songForm.patchValue({ genre: '' });
-    }
-  }
-
   //Eliminar de la interfaz un género
   removeGenre(genre: string) {
-    
+
     this.selectedSong.genre = this.selectedSong.genre.filter((g: string) => g !== genre);
-    console.log(this.selectedSong.genre)
   }
 
   //Abre Modal de la canción
@@ -127,7 +113,6 @@ export class ListSongsComponent implements OnInit {
     this.selectedSong = song;
     const modalElement = document.getElementById('songModal');
     const modal = new bootstrap.Modal(modalElement);
-    console.log(this.selectedSong)
     modal.show();
   }
 
