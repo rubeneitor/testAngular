@@ -53,8 +53,6 @@
   
   /* Media Query para pantallas pequeñas (móviles) */
   @media (max-width: 768px){
-    .year,
-    .duration,
     .rating {
       display: none;
     }
